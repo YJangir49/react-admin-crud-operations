@@ -1,0 +1,38 @@
+{
+  "name": "react-admin-web-app",
+  "version": "1.0.0",
+  "description": "A React Web Repositary to understand and learn React Admin Concepts to create fast CRUD friendly Web Application",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack serve",
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YJangir49/react-admin-crud-operations.git"
+  },
+  "keywords": [
+    "React"
+  ],
+  "author": "Yogender Jangir",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YJangir49/react-admin-crud-operations/issues"
+  },
+  "homepage": "https://github.com/YJangir49/react-admin-crud-operations#readme",
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.5",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "babel-loader": "^8.2.3",
+    "html-webpack-plugin": "^5.5.0",
+    "webpack": "^5.69.1",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.7.4"
+  }
+}
