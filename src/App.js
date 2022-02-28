@@ -1,11 +1,15 @@
 import * as React from "react";
-import { Admin, Resource, ListGuesser } from 'react-admin';
+import { Admin, Resource, EditGuesser } from 'react-admin';
 import jsonServerProvider from 'ra-data-json-server';
 import UserList from './Users';
+import PostList, { PostEdit, PostCreate } from './components/Posts';
+import { PostAddSharp, GroupSharp } from '@material-ui/icons';
+import Dashboard from './components/Dashboard';
 
 const dataProvider = jsonServerProvider('https://jsonplaceholder.typicode.com');
-const App = () => (<Admin dataProvider={dataProvider} >
-    <Resource name="users" list={UserList}/>
+const App = () => (<Admin dashboard={Dashboard} dataProvider={dataProvider} >
+    <Resource icon={GroupSharp} name="users" list={UserList}/>
+    <Resource icon={PostAddSharp} name="posts" list={PostList} edit={PostEdit} create={PostCreate}/>
 </Admin>);
 
 export default App;
