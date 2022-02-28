@@ -2,11 +2,17 @@ import React from 'react';
 import { 
     List, Datagrid, ReferenceField, TextField, EditButton, 
     SimpleForm, Edit, ReferenceInput, TextInput, SelectInput,
-    Create
+    Create,
+    SimpleList
 } from 'react-admin';
+import { useMediaQuery } from '@material-ui/core';
 
-export const PostList = props => (
-    <List filters={postFilters} {...props}>
+
+export const PostList = props => {
+    const isMobileView = useMediaQuery(theme => theme.breakpoints.down('sm'));
+    
+    return (<List filters={postFilters} {...props}>
+       { !isMobileView ? 
         <Datagrid >
             <TextField source="id" />
             <ReferenceField source="userId" reference="users">
@@ -15,8 +21,15 @@ export const PostList = props => (
             <TextField source="title" />
             <EditButton />
         </Datagrid>
-    </List>
-);
+        : 
+        <SimpleList
+            primaryText={record => record.title}
+            secondaryText={record => `${record.views || 20} views`}
+            tertiaryText={record => record.published_at ? new Date(record.published_at).toLocaleDateString() : new Date().toLocaleDateString()}
+        />
+       }
+    </List>)
+};
 
 const PostTitle = ({record}) => {
     return <span>{record ? `${record.title}` : ""}</span>
